@@ -12,14 +12,19 @@ class LoginForm extends Form
 {
     public function __construct()
     {
+        // set name for form
         parent::__construct( 'login-form' );
 
+        // add all Elements what we need
         $this->addElements();
+
+        // Filtering and Validating input fields
         $this->addInputFilter();
     }
 
     private function addElements()
     {
+        // input Email Address
         $this->add([
             'name'       => 'email-address',
             'type'       => Element\Email::class,
@@ -35,6 +40,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // input Password
         $this->add([
             'name'       => 'password',
             'type'       => Element\Password::class,
@@ -49,6 +55,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // input Remember Me
         $this->add([
             'name' => 'remember-me',
             'type' => Element\Checkbox::class,
@@ -60,6 +67,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // hidden input CSRF (used to prevent Cross Site Request Forgery attacks)
         $this->add([
             'name' => 'csrf',
             'type' => Element\Csrf::class,
@@ -70,6 +78,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // input Submit
         $this->add([
             'name'       => 'login',
             'type'       => Element\Submit::class,
@@ -87,6 +96,7 @@ class LoginForm extends Form
 
         $this->setInputFilter($filter);
 
+        // filter and validator for Email Address field
         $filter->add([
             'name'       => 'email-address',
             'require'    => true,
@@ -104,6 +114,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // filter and validator for Password field
         $filter->add([
             'name'       => 'password',
             'require'    => true,
@@ -118,6 +129,7 @@ class LoginForm extends Form
             ],
         ]);
 
+        // filter and validator for Remember Me field
         $filter->add([
             'name'       => 'remember-me',
             'required'   => false,
