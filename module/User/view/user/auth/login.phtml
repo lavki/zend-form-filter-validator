@@ -1,0 +1,44 @@
+<?php $form = $this->form; $form->prepare(); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+            <h1 class="text-center text-uppercase">Login</h1>
+            <?= $this->form()->openTag($form); ?>
+
+            <div class="form-group">
+                <?= $this->formLabel($form->get('email-address')); ?>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                    <?= $this->formElement($form->get('email-address')); ?>
+                </div><!-- /.input-group -->
+                <?= $this->formElementErrors($form->get('email-address')); ?>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <?= $this->formLabel($form->get('password')); ?>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                    <?= $this->formElement($form->get('password')); ?>
+                </div><!-- /.input-group -->
+                <?= $this->formElementErrors($form->get('password')); ?>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <?= $this->formElement($form->get('remember-me')); ?> Remember me
+                    </label>
+                </div><!-- /.checkbox -->
+            </div><!-- /.form-group -->
+
+            <?= $this->formElement($form->get('csrf')); ?>
+
+            <div class="form-group">
+                <?= $this->formElement($form->get('login')); ?>
+            </div><!-- /.form-group -->
+
+            <?= $this->form()->closeTag(); ?>
+
+        </div><!-- /.col-md-3 col-md-offset-4 -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
